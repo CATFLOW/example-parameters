@@ -1,0 +1,25 @@
+name: Validate CATFLOW input data
+
+# run on every push.
+# TODO: We can be more sensible about this one
+on: push
+
+jobs:
+  landuse:
+    name: Validate Landuse class definitions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout reposity
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      
+      - name: Install catflow_validate
+        run: pip install catflow_validate
+
+      - name: Run the tests
+        run: pytest -s --pyargs catflow_validate 
