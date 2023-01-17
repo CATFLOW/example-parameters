@@ -1,8 +1,9 @@
 name: Validate CATFLOW input data
 
-# run on every push.
-# TODO: We can be more sensible about this one
-on: push
+# run on pull requests
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
 
 jobs:
   landuse:
