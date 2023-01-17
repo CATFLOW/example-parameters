@@ -24,3 +24,35 @@ jobs:
 
       - name: Run the tests
         run: pytest -s --pyargs catflow_validate 
+
+  generate_report:
+    name: Add report to the Pull request
+    runs-on: ubuntu-latest
+
+    outputs:
+      report: ${{ steps.generate.outputs.report }}
+
+        steps:
+      - name: Checkout reposity
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      
+      - name: Install catflow_validate
+        run: pip install catflow_validate
+
+      - name: Generate the repor
+        id: generate
+        run: echo "report=$(catlidate report --input-folder=./)" >> $GITHUB_OUTPUT
+      
+      - name: Debug
+        run: echo ${{ steps.generate.outputs.report }}
+
+      - name: Comment on pull request
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.generate.outputs.report }}
+      
