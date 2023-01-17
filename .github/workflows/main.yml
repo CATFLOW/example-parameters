@@ -29,9 +29,6 @@ jobs:
     name: Add report to the Pull request
     runs-on: ubuntu-latest
 
-    outputs:
-      report: ${{ steps.generate.outputs.report }}
-
     steps:
       - name: Checkout reposity
         uses: actions/checkout@v3
@@ -44,15 +41,16 @@ jobs:
       - name: Install catflow_validate
         run: pip install catflow_validate
 
-      - name: Generate the repor
+      - name: Generate the report
         id: generate
-        run: echo "report=$(catlidate report --input-folder=./)" >> $GITHUB_OUTPUT
+        run: catlidate report --input-folder=./ >> report.md
       
       - name: Debug
         run: echo ${{ steps.generate.outputs.report }}
 
       - name: Comment on pull request
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v2.3
         with:
-          message: ${{ steps.generate.outputs.report }}
+          recreate: true
+          path: ./report.md
       
