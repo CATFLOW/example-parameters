@@ -32,7 +32,7 @@ jobs:
     outputs:
       report: ${{ steps.generate.outputs.report }}
 
-        steps:
+    steps:
       - name: Checkout reposity
         uses: actions/checkout@v3
 
