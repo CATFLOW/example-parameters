@@ -43,7 +43,7 @@ jobs:
 
       - name: Generate the report
         id: generate
-        run: catlidate report --input-folder=./ >> report.md
+        run: catlidate report --input-folder=./ --fmt=md >> report.md
       
       - name: Debug
         run: echo ${{ steps.generate.outputs.report }}
