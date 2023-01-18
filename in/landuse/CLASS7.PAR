@@ -1,6 +1,6 @@
  10    KST    MAK     BFI    BBG    TWU    PFH    PALB  RSTMIN  WP_BFW  F_BFW   %Laubwald
   0.    3.     1.    14.0    0.8    3.0   10.0     1.      1.    1.      1.     %BFI:S.Hohn
-  1.    2.     1.     0.0    0.75   1.0    1.0     0.2   100.    0.05    30.    %TWU,TEF:Skript Kulturtechnik
+  2.    2.     1.     0.0    0.75   1.0    1.0     0.2   100.    0.05    30.    %TWU,TEF:Skript Kulturtechnik
  75.    2.     1.     0.1    0.75   1.0    1.0     0.2   100.    0.05    30.    %BBG:E.Haberlandt
 105.    2.     1.     0.36   0.75   1.0    1.0     0.2   100.    0.05    30.    %
 135.    2.     1.     0.72   0.81   1.0    1.0     0.2   100.    0.05    30.    %BFI fuer Buche:14.0
