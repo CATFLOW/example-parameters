@@ -43,7 +43,7 @@ jobs:
 
       - name: Generate the report
         id: generate
-        run: catlidate report --input-folder=./ --fmt=md --base-href="https://github.com/CATFLOW/example-parameters/blob/${{ github.head_href }}" >> report.md
+        run: catlidate report --input-folder=./ --fmt=md --base-href="https://github.com/CATFLOW/example-parameters/blob/$GITHUB_HEAD_REF" >> report.md
       
       - name: Debug
         run: echo ${{ steps.generate.outputs.report }}
